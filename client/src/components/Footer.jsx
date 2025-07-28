@@ -31,11 +31,11 @@ const Footer = () => {
       {/* Gradient Overlay */}
       <div className="absolute inset-0 bg-gradient-to-t from-gray-900/90 via-gray-900/70 to-gray-900/90 z-0"></div>
 
-      <footer className="relative z-10 bg-gray-900/80 backdrop-blur-sm text-gray-300 py-12 px-4 sm:px-6 lg:px-8">
+      <footer className="relative z-10 bg-gray-900/80 backdrop-blur-sm text-gray-300 py-6 px-2 sm:px-4 lg:py-6">
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
             {/* Contact Information - Enhanced */}
-            <div className="space-y-6">
+            <div className="space-y-4">
               <h3 className="text-xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-blue-500">
                 Contact Our Team
               </h3>
@@ -83,7 +83,7 @@ const Footer = () => {
             </div>
 
             {/* Social Links - Enhanced */}
-            <div className="space-y-6">
+            <div className="space-y-4">
               <h3 className="text-xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-500">
                 Connect With Me
               </h3>
@@ -112,7 +112,7 @@ const Footer = () => {
             </div>
 
             {/* Quick Links - Enhanced */}
-            <div className="space-y-6">
+            <div className="space-y-4">
               <h3 className="text-xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500">
                 Quick Links
               </h3>
@@ -145,7 +145,7 @@ const Footer = () => {
           </div>
 
           {/* Copyright - Enhanced */}
-          <div className="mt-12 pt-4 border-t border-gray-800/50 text-center">
+          <div className="mt-8 pt-4 border-t border-gray-800/50 text-center">
             <div className="flex flex-col items-center">
               {/* <div className="mb-4 flex space-x-4">
                 {socialLinks.map((link, index) => (

@@ -4,23 +4,23 @@ import Particles from './Particle.jsx';
 
 const TrustedByBrands = () => {
   const brands = [
-    { name: "Toyota", logo: "/brands/toyota.png" },
-    { name: "BMW", logo: "/brands/bmw.png" },
-    { name: "Mercedes", logo: "/brands/mercedes.png" },
-    { name: "Ford", logo: "/brands/ford.png" },
-    { name: "Audi", logo: "/brands/audi.png" },
+    { name: "Toyota", logo: "/brands/Toyota.png" },
+    { name: "BMW", logo: "/brands/BMW.png" },
+    { name: "Mercedes", logo: "/brands/Mercedes.png" },
+    { name: "Ford", logo: "/brands/Ford.png" },
+    { name: "Audi", logo: "/brands/Audi.png" },
     { name: "Tesla", logo: "/brands/tesla.png" },
     { name: "Honda", logo: "/brands/honda.png" },
-    { name: "Hyundai", logo: "/brands/hyundai.png" },
+    { name: "Hyundai", logo: "/brands/Hyundai.png" },
     // Duplicate the array to create seamless looping
-    { name: "Toyota", logo: "/brands/toyota.png" },
-    { name: "BMW", logo: "/brands/bmw.png" },
-    { name: "Mercedes", logo: "/brands/mercedes.png" },
-    { name: "Ford", logo: "/brands/ford.png" },
-    { name: "Audi", logo: "/brands/audi.png" },
+    { name: "Toyota", logo: "/brands/Toyota.png" },
+    { name: "BMW", logo: "/brands/BMW.png" },
+    { name: "Mercedes", logo: "/brands/Mercedes.png" },
+    { name: "Ford", logo: "/brands/Ford.png" },
+    { name: "Audi", logo: "/brands/Audi.png" },
     { name: "Tesla", logo: "/brands/tesla.png" },
     { name: "Honda", logo: "/brands/honda.png" },
-    { name: "Hyundai", logo: "/brands/hyundai.png" },
+    { name: "Hyundai", logo: "/brands/Hyundai.png" },
   ];
 
   // Animation variants
@@ -40,20 +40,7 @@ const TrustedByBrands = () => {
   };
 
   return (
-    <div className="relative mx-auto px-4 py-12 overflow-hidden">
-      {/* Particles as background */}
-      <div className="absolute inset-0 -z-10 pointer-events-none">
-        <Particles
-          particleColors={['#ffffff', '#ffffff']}
-          particleCount={100}
-          particleSpread={6}
-          speed={0.1}
-          particleBaseSize={50}
-          moveParticlesOnHover={false}
-          alphaParticles={false}
-          disableRotation={false}
-        />
-      </div>
+    <div className="relative w-full h-full flex-col items-center justify-center my-12 mx-auto p-8 overflow-hidden">
       <motion.div 
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
@@ -112,7 +99,7 @@ const TrustedByBrands = () => {
                     width={120}
                     height={60}
                     style={{ objectFit: "contain" }}
-                    className="filter grayscale-[30%] group-hover:grayscale-0 transition-all duration-500"
+                    className="filter grayscale-[30%] group-hover:grayscale-0 mt-6 transition-all duration-500"
                   />
                 </div>
                 
