@@ -1,9 +1,16 @@
 import Particles from '../components/Particle.jsx';
 import CarModel from '../components/CarModel.jsx';
 import React from 'react';
+import TrustedByBrands from '../components/TrustByBrands.jsx';
+import WhyCarAI from '../components/WhyCarAI.jsx';
+import Navbar from '../components/Navbar.jsx';
 import Card from '../components/Card.jsx';
 
 const Homepage = () => {
+    return (<div className='bg-black'>
+        <Navbar />
+        <div className='bg-black text-white w-full h-screen flex items-center justify-center overflow-hidden'>
+            <div className='absolute inset-0'>
     return (
         <div className='bg-black text-white w-full min-h-screen flex flex-col items-center justify-start relative'>
             {/* Particle Background - covers entire homepage */}
@@ -76,6 +83,7 @@ const Homepage = () => {
                     </div>
                 </div>
             </div>
+          
 
             {/* Card Section - positioned below main content with particle background */}
             <div className='w-full flex justify-center pb-20 bg-black relative z-10'>
@@ -84,6 +92,8 @@ const Homepage = () => {
                 </div>
             </div>
         </div>
+        <WhyCarAI/>
+          <TrustedByBrands/></div>
     );
 }
 
