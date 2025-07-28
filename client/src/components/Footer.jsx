@@ -121,7 +121,9 @@ const Footer = () => {
                   { name: 'Home', href: '#' },
                   { name: 'About', href: '#about' },
                   { name: 'Our Shop', href: '#projects' },
-                  { name: 'Try Us', href: '#skills' }
+                  { name: 'Try Us', href: '#skills' },
+                  { name: 'Privacy Policy', href: '#PrivacyPolicy' },
+                  { name: 'Terms Of Service', href: '#TermsOfService' },
                 ].map((item, index) => (
                   <li key={index}>
                     <a 

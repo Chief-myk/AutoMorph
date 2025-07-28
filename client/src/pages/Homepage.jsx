@@ -1,11 +1,13 @@
 import Particles from '../components/Particle.jsx';
 import CarModel from '../components/CarModel.jsx';
 import React from 'react';
+import Card from '../components/Card.jsx';
 
 const Homepage = () => {
     return (
-        <div className='bg-black text-white w-full h-screen flex items-center justify-center overflow-hidden'>
-            <div className='absolute inset-0'>
+        <div className='bg-black text-white w-full min-h-screen flex flex-col items-center justify-start relative'>
+            {/* Particle Background - covers entire homepage */}
+            <div className='fixed inset-0 z-0 pointer-events-none'>
                 <Particles
                     particleColors={['#ffffff', '#ffffff']}
                     particleCount={300}
@@ -18,8 +20,10 @@ const Homepage = () => {
                 />
             </div>
 
-            <div className='absolute inset-0 w-full h-full flex flex-row justify-between p-10'>
-                <div className='flex flex-col justify-center w-1/2 h-full pl-16 pr-10 z-10'>
+            {/* Main Content Section */}
+            <div className='w-full h-screen flex flex-row justify-between p-10 relative z-10'>
+                {/* Left Content (unchanged) */}
+                <div className='flex flex-col justify-center w-1/2 h-full pl-16 pr-10'>
                     <div className='mb-8'>
                         <h1 className='text-6xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-600'>
                             Welcome to AutoMorph
@@ -53,31 +57,30 @@ const Homepage = () => {
                     </div>
                 </div>
 
-                {/* Enhanced Right side - 3D car model section */}
+                {/* Right Content - 3D Model (unchanged) */}
                 <div className='w-1/2 h-full flex items-center justify-center pr-16'>
                     <div className='relative w-full h-4/5 rounded-2xl overflow-hidden'>
-                        {/* Glass morphism effect container */}
                         <div className='absolute inset-0 bg-gradient-to-br from-gray-900/80 to-gray-800/80 border border-gray-700/50 shadow-[0_8px_32px_0_rgba(31,38,135,0.37)]'>
-                            {/* Animated floating platform */}
                             <div className='absolute bottom-0 left-0 right-0 h-16 bg-gradient-to-t from-gray-900 to-transparent z-10'></div>
-                            
-                            {/* Floating info badge */}
                             <div className='absolute bottom-6 left-6 z-20 px-4 py-2 bg-black/50 backdrop-blur-sm rounded-full border border-gray-600/50 flex items-center'>
                                 <div className='w-3 h-3 rounded-full bg-blue-500 mr-2 animate-pulse'></div>
                                 <span className='text-xs font-medium text-gray-300'>3D Interactive Model</span>
                             </div>
-                            
-                            {/* Car model with enhanced lighting */}
                             <div className='absolute inset-0 flex items-center justify-center'>
                                 <CarModel />
                             </div>
-                            
-                            {/* Subtle radial gradient overlay */}
                             <div className='absolute inset-0 pointer-events-none' style={{
                                 background: 'radial-gradient(circle at center, transparent 0%, rgba(0,0,0,0.7) 100%)'
                             }}></div>
                         </div>
                     </div>
+                </div>
+            </div>
+
+            {/* Card Section - positioned below main content with particle background */}
+            <div className='w-full flex justify-center pb-20 bg-black relative z-10'>
+                <div className='w-full max-w-7xl px-10'>
+                    <Card />
                 </div>
             </div>
         </div>
