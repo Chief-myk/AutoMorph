@@ -1,9 +1,13 @@
 import Particles from '../components/Particle.jsx';
 import CarModel from '../components/CarModel.jsx';
 import React from 'react';
+import TrustedByBrands from '../components/TrustByBrands.jsx';
+import WhyCarAI from '../components/WhyCarAI.jsx';
+import Navbar from '../components/Navbar.jsx';
 
 const Homepage = () => {
-    return (
+    return (<div className='bg-black'>
+        <Navbar />
         <div className='bg-black text-white w-full h-screen flex items-center justify-center overflow-hidden'>
             <div className='absolute inset-0'>
                 <Particles
@@ -80,7 +84,10 @@ const Homepage = () => {
                     </div>
                 </div>
             </div>
+          
         </div>
+        <WhyCarAI/>
+          <TrustedByBrands/></div>
     );
 }
 
