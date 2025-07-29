@@ -1,11 +1,25 @@
 import React from 'react'
 import Homepage from './pages/Homepage'
-import Footer from './components/footer'
+
 import Navbar from './components/Navbar'
 import LoadingSpinner from './pages/Loader'
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { useState, useEffect } from 'react'
 import SignIn from "./pages/SignIn"
+import Footer from './components/Footer'
+import { createBrowserRouter, RouterProvider } from 'react-router-dom'
+import CarPartsShop from './pages/Shop.jsx' // Make sure this path is correct
+
+const router = createBrowserRouter([
+  {
+    path: "/shop",
+    element: <CarPartsShop />,
+  },
+  {
+    path: "/",
+    element: <Homepage />,
+  }
+])
 
 const App = () => {
   const [loading, setLoading] = useState(true);

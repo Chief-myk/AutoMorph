@@ -2,7 +2,15 @@ import React, { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 
 const Navbar = () => {
+
   const [activeLink, setActiveLink] = useState(null);
+  const items = [
+  { label: 'Home', link: '/' },
+  { label: 'Shop', link: '/shop' },
+ 
+  { label: 'About', link: '/about' },
+ 
+];
 
   const navLinks = [
     { path: "/", label: "Home" },
@@ -33,13 +41,14 @@ const Navbar = () => {
 
       {/* Links with hover and mirror effects */}
       <div className="hidden md:flex space-x-10 text-base font-semibold relative">
-        {navLinks.map((item) => (
-          <Link
+        {items.map((item) => (
+          <a
             key={item.label}
-            to={item.path}
-            className={`relative px-2 py-1 transition-colors duration-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#26C6FF]/60 ${activeLink === item ? 'text-[#26C6FF] bg-[#1a1d2e]/60 shadow-md shadow-[#26C6FF]/10' : 'hover:text-[#A0006D]'
-              }`}
-            onMouseEnter={() => setActiveLink(item)}
+            href={item.link}
+            className={`relative px-2 py-1 transition-colors duration-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#26C6FF]/60 ${
+              activeLink === item.label ? 'text-[#26C6FF] bg-[#1a1d2e]/60 shadow-md shadow-[#26C6FF]/10' : 'hover:text-[#A0006D]'
+            }`}
+            onMouseEnter={() => setActiveLink(item.label)}
             onMouseLeave={() => setActiveLink(null)}
             tabIndex={0}
           >
@@ -62,7 +71,7 @@ const Navbar = () => {
                 top: '100%',
               }}
             ></span>
-          </Link>
+          </a>
         ))}
       </div>
 
