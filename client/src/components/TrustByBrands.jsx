@@ -40,7 +40,7 @@ const TrustedByBrands = () => {
   };
 
   return (
-    <div className="relative w-full h-full flex-col items-center justify-center my-12 mx-auto p-8 overflow-hidden">
+    <div className="relative bg-black w-full h-full flex-col items-center justify-center mx-auto p-8 overflow-hidden">
       <motion.div 
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}

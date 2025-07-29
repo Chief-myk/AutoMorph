@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { FiShoppingCart, FiSearch, FiUser, FiMenu, FiX } from 'react-icons/fi';
 import Footer from '../components/Footer';
 
-const CarPartsShop = () => {
+const Shop = () => {
   const [cartItems, setCartItems] = useState(0);
 
   const [selectedCategory, setSelectedCategory] = useState('All');
@@ -206,4 +206,4 @@ const CarPartsShop = () => {
   );
 };
 
-export default CarPartsShop;
+export default Shop;

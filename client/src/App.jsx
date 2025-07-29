@@ -8,12 +8,12 @@ import { useState, useEffect } from 'react'
 import SignIn from "./pages/SignIn"
 import Footer from './components/Footer'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
-import CarPartsShop from './pages/Shop.jsx' // Make sure this path is correct
+import Shop from './pages/Shop.jsx' // Make sure this path is correct
 
 const router = createBrowserRouter([
   {
     path: "/shop",
-    element: <CarPartsShop />,
+    element: <Shop />,
   },
   {
     path: "/",
@@ -44,6 +44,7 @@ const App = () => {
         <Routes>
           <Route path='/' element={<Homepage />} />
           <Route path='/signIn' element={<SignIn />} />
+           <Route path='/shop' element={<Shop/>} />
         </Routes>
         <div className="relative z-20">
           <Footer />
