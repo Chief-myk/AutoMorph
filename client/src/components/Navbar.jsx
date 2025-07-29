@@ -1,7 +1,15 @@
 import React, { useState } from "react";
+import { Link, useLocation } from "react-router-dom";
 
 const Navbar = () => {
   const [activeLink, setActiveLink] = useState(null);
+
+  const navLinks = [
+    { path: "/", label: "Home" },
+    { path: "/about", label: "About" },
+    { path: "/OurShop", label: "shop" },
+    { path: "/TryUs", label: "try us" },
+  ];
 
   return (
     <nav className="absolute w-[95%] ml-8 mt-4  bg-gradient-to-r from-[#101225] via-[#0D0F1A] to-[#101225] text-white px-8 py-4 flex items-center justify-between rounded-3xl border border-[#23263a] shadow-xl shadow-[#26C6FF]/10 hover:shadow-[#26C6FF]/30 transition-all duration-300 backdrop-blur-md overflow-visible z-50">
@@ -25,23 +33,21 @@ const Navbar = () => {
 
       {/* Links with hover and mirror effects */}
       <div className="hidden md:flex space-x-10 text-base font-semibold relative">
-        {['Features', 'Analysis', '3D Viewer', 'Pricing'].map((item) => (
-          <a
-            key={item}
-            href="#"
-            className={`relative px-2 py-1 transition-colors duration-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#26C6FF]/60 ${
-              activeLink === item ? 'text-[#26C6FF] bg-[#1a1d2e]/60 shadow-md shadow-[#26C6FF]/10' : 'hover:text-[#A0006D]'
-            }`}
+        {navLinks.map((item) => (
+          <Link
+            key={item.label}
+            to={item.path}
+            className={`relative px-2 py-1 transition-colors duration-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#26C6FF]/60 ${activeLink === item ? 'text-[#26C6FF] bg-[#1a1d2e]/60 shadow-md shadow-[#26C6FF]/10' : 'hover:text-[#A0006D]'
+              }`}
             onMouseEnter={() => setActiveLink(item)}
             onMouseLeave={() => setActiveLink(null)}
             tabIndex={0}
           >
-            <span className="relative z-10">{item}</span>
+            <span className="relative z-10">{item.label}</span>
             {/* Mirror/glow effect */}
             <span
-              className={`absolute inset-x-0 bottom-0 h-0.5 bg-gradient-to-r from-[#26C6FF] to-[#A0006D] transform scale-x-0 ${
-                activeLink === item ? 'scale-x-100' : ''
-              } transition-transform duration-300 origin-left rounded`}
+              className={`absolute inset-x-0 bottom-0 h-0.5 bg-gradient-to-r from-[#26C6FF] to-[#A0006D] transform scale-x-0 ${activeLink === item ? 'scale-x-100' : ''
+                } transition-transform duration-300 origin-left rounded`}
               style={{
                 boxShadow: activeLink === item ? '0 0 12px 2px #26C6FF55' : 'none',
               }}
@@ -56,7 +62,7 @@ const Navbar = () => {
                 top: '100%',
               }}
             ></span>
-          </a>
+          </Link>
         ))}
       </div>
 
@@ -64,7 +70,9 @@ const Navbar = () => {
       <div className="flex items-center">
         <button className="relative px-6 py-2 rounded-xl font-bold group overflow-hidden shadow-md shadow-[#26C6FF]/10 border border-[#23263a] bg-gradient-to-r from-[#1C1F2A] to-[#23263a] hover:from-[#23263a] hover:to-[#1C1F2A] transition-all duration-300">
           <span className="relative z-10 text-white group-hover:text-[#26C6FF] transition-colors duration-300">
-            Sign In
+            <Link to={"/signIn"}>
+              Sign In
+            </Link>
           </span>
           {/* Button background animation */}
           <span className="absolute inset-0 bg-[#1C1F2A] rounded-xl opacity-100 group-hover:opacity-0 transition-opacity duration-300"></span>
@@ -86,19 +94,21 @@ const Navbar = () => {
       </div>
 
       {/* CSS for pulse animation */}
-      <style jsx>{`
-        @keyframes pulse {
-          0% {
-            box-shadow: inset 0 0 12px #26C6FF22;
-          }
-          50% {
-            box-shadow: inset 0 0 18px #26C6FF66;
-          }
-          100% {
-            box-shadow: inset 0 0 12px #26C6FF22;
-          }
-        }
-      `}</style>
+      <style>
+        {`
+    @keyframes pulse {
+      0% {
+        box-shadow: inset 0 0 12px #26C6FF22;
+      }
+      50% {
+        box-shadow: inset 0 0 18px #26C6FF66;
+      }
+      100% {
+        box-shadow: inset 0 0 12px #26C6FF22;
+      }
+    }
+  `}
+      </style>
     </nav>
   );
 };

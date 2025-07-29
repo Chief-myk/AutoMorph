@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { FaGithub, FaLinkedin, FaTwitter, FaFileDownload, FaCopy, FaPhone, FaEnvelope } from 'react-icons/fa';
 import { SiLeetcode } from 'react-icons/si';
 import { IoLogoInstagram } from "react-icons/io";
+import { Link, useLocation } from "react-router-dom";
 
 const Footer = () => {
   const [copyStatus, setCopyStatus] = useState({ email: false, phone: false });
@@ -48,7 +49,7 @@ const Footer = () => {
                     <p className="text-sm text-gray-400">Email</p>
                     <div className="flex items-center">
                       <span className="text-white">{contactInfo.email}</span>
-                      <button 
+                      <button
                         onClick={() => copyToClipboard(contactInfo.email, 'email')}
                         className="ml-3 p-2 rounded-full hover:bg-gray-700/50 transition-all duration-200 hover:scale-110"
                         aria-label="Copy email"
@@ -68,7 +69,7 @@ const Footer = () => {
                     <p className="text-sm text-gray-400">Phone</p>
                     <div className="flex items-center">
                       <span className="text-white">{contactInfo.phone}</span>
-                      <button 
+                      <button
                         onClick={() => copyToClipboard(contactInfo.phone, 'phone')}
                         className="ml-3 p-2 rounded-full hover:bg-gray-700/50 transition-all duration-200 hover:scale-110"
                         aria-label="Copy phone number"
@@ -118,30 +119,29 @@ const Footer = () => {
               </h3>
               <ul className="space-y-3 flex flex-row gap-4 flex-wrap">
                 {[
-                  { name: 'Home', href: '#' },
-                  { name: 'About', href: '#about' },
-                  { name: 'Our Shop', href: '#projects' },
-                  { name: 'Try Us', href: '#skills' },
-                  { name: 'Privacy Policy', href: '#PrivacyPolicy' },
-                  { name: 'Terms Of Service', href: '#TermsOfService' },
+                  { name: 'Home', to: '/' },
+                  { name: 'About', to: '/about' },
+                  { name: 'Our Shop', to: '/OurShop' },
+                  { name: 'Try Us', to: '/TryUs' },
+                  { name: 'Privacy Policy', to: '/PrivacyPolicy' },
+                  { name: 'Terms Of Service', to: '/TermsOfService' },
                 ].map((item, index) => (
                   <li key={index}>
-                    <a 
-                      href={item.href} 
+                    <Link
+                      to={item.to}
                       className="flex items-center group text-gray-300 hover:text-white transition-colors"
                     >
                       <span className="w-2 h-2 rounded-full bg-blue-500 mr-3 opacity-0 group-hover:opacity-100 transition-all duration-300"></span>
                       <span className="border-b border-transparent group-hover:border-blue-400 transition-all duration-300">
                         {item.name}
                       </span>
-                      {/* <span className="ml-auto opacity-0 group-hover:opacity-100 text-blue-400 transition-all duration-300">
-                        →
-                      </span> */}
-                    </a>
+                    </Link>
                   </li>
                 ))}
               </ul>
             </div>
+
+
           </div>
 
           {/* Copyright - Enhanced */}
