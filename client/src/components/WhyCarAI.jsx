@@ -26,7 +26,7 @@ const WhyCarAI = () => {
   };
 
   return (
-    <section className="relative text-white px-6 md:px-20 py-16 bg-transparent text-center overflow-hidden">
+    <section className="relative  text-white px-6 md:px-20 py-16 bg-black text-center overflow-hidden">
       {/* Particles as background */}
       <div className="absolute inset-0 z-10 pointer-events-none">
         <Particles

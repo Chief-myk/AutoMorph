@@ -1,12 +1,25 @@
 import React from 'react'
 import Homepage from './pages/Homepage'
-import Footer from './components/footer'
+
 import Navbar from './components/Navbar'
 import LoadingSpinner from './pages/Loader'
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { useState, useEffect } from 'react'
 import SignIn from "./pages/SignIn"
-import Shop from "./pages/Shop"
+import Footer from './components/Footer'
+import { createBrowserRouter, RouterProvider } from 'react-router-dom'
+import Shop from './pages/Shop.jsx' // Make sure this path is correct
+
+const router = createBrowserRouter([
+  {
+    path: "/shop",
+    element: <Shop />,
+  },
+  {
+    path: "/",
+    element: <Homepage />,
+  }
+])
 
 const App = () => {
   const [loading, setLoading] = useState(true);
@@ -30,11 +43,11 @@ const App = () => {
         </div>
         <Routes>
           <Route path='/' element={<Homepage />} />
-          <Route path='/OurShop' element={<Shop />} />
           <Route path='/signIn' element={<SignIn />} />
+           <Route path='/shop' element={<Shop/>} />
         </Routes>
-        <div className="relative bottom-0 z-20">
-          <Footer />
+        <div className="relative z-20">
+        
         </div>
       </Router>
 

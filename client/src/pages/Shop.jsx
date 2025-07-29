@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
+import { FiShoppingCart, FiSearch, FiUser, FiMenu, FiX } from 'react-icons/fi';
+import Footer from '../components/Footer';
 
-
-const CarPartsShop = () => {
+const Shop = () => {
   const [cartItems, setCartItems] = useState(0);
 
   const [selectedCategory, setSelectedCategory] = useState('All');
@@ -64,7 +65,7 @@ const CarPartsShop = () => {
   };
 
   return (
-    <div className="min-h-screen w-full bg-gray-900 text-gray-100">
+    <div className="h-screen bg-gray-900 text-gray-100">
     
       {/* Hero Section */}
       <section className="relative h-[75%] bg-gradient-to-br from-gray-900 to-gray-800 overflow-hidden">
@@ -198,10 +199,11 @@ const CarPartsShop = () => {
         </div>
       </section>
 
-     
+      {/* Footer */}
+      <Footer/>
    
     </div>
   );
 };
 
-export default CarPartsShop;
+export default Shop;
