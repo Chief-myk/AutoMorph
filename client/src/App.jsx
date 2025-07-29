@@ -47,7 +47,7 @@ const App = () => {
            <Route path='/shop' element={<Shop/>} />
         </Routes>
         <div className="relative z-20">
-          <Footer />
+        
         </div>
       </Router>
 

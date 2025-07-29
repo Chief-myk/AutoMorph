@@ -89,6 +89,7 @@ const Homepage = () => {
 
             <WhyCarAI />
             <TrustedByBrands />
+            <Footer />
         </>
     );
 };
