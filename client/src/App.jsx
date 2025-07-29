@@ -6,6 +6,7 @@ import LoadingSpinner from './pages/Loader'
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { useState, useEffect } from 'react'
 import SignIn from "./pages/SignIn"
+import Shop from "./pages/Shop"
 
 const App = () => {
   const [loading, setLoading] = useState(true);
@@ -29,9 +30,10 @@ const App = () => {
         </div>
         <Routes>
           <Route path='/' element={<Homepage />} />
+          <Route path='/OurShop' element={<Shop />} />
           <Route path='/signIn' element={<SignIn />} />
         </Routes>
-        <div className="relative z-20">
+        <div className="relative bottom-0 z-20">
           <Footer />
         </div>
       </Router>
