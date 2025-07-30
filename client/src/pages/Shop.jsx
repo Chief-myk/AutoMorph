@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import Particles from "../components/Particle";
+import Footer from "../components/Footer";
 import {
   FaShippingFast,
   FaLock,
@@ -196,6 +197,8 @@ const Shop = () => {
           🛒 Go to Cart ({cart.length})
         </button>
       )}
+
+      <Footer/>
     </div>
   );
 };
