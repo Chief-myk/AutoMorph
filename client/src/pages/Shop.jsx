@@ -1,207 +1,201 @@
-import React, { useState } from 'react';
-import { FiShoppingCart, FiSearch, FiUser, FiMenu, FiX } from 'react-icons/fi';
-import Footer from '../components/Footer';
+import React, { useState } from "react";
+import Particles from "../components/Particle";
+import {
+  FaShippingFast,
+  FaLock,
+  FaCheckCircle,
+  FaHeadset,
+  FaSmile,
+} from "react-icons/fa";
+
+// Sample product data
+const products = [
+  {
+    id: 1,
+    name: "Hewlett-Packard Chrome Rims",
+    price: 230,
+    oldPrice: 260,
+    discount: "-12%",
+    image: "/public/CarParts/generated-image.png",
+  },
+  {
+    id: 2,
+    name: "Apple Chrome Engine",
+    price: 120,
+    oldPrice: 150,
+    discount: "-20%",
+    image: "/public/CarParts/gen5.png",
+  },
+  {
+    id: 3,
+    name: "Apple Lyptus Lens",
+    price: 100,
+    oldPrice: 140,
+    discount: "-29%",
+    image: "/public/CarParts/generated-image4.png",
+  },
+  {
+    id: 4,
+    name: "Apple Meque Metus",
+    price: 150,
+    oldPrice: 180,
+    discount: "-17%",
+    image: "/public/CarParts/generated-image3.png",
+  },
+  {
+    id: 5,
+    name: "Apple Quisque in Hara",
+    price: 210,
+    oldPrice: 250,
+    discount: "-16%",
+    image: "/public/CarParts/generated-image1.png",
+  },
+];
 
 const Shop = () => {
-  const [cartItems, setCartItems] = useState(0);
+  const [cart, setCart] = useState([]);
+  const [search, setSearch] = useState("");
 
-  const [selectedCategory, setSelectedCategory] = useState('All');
-
-  const categories = ['All', 'Performance', 'Exterior', 'Interior', 'Lighting', 'Wheels'];
-  
-  const products = [
-    {
-      id: 1,
-      name: 'Neon Underbody Kit',
-      price: 299.99,
-      category: 'Lighting',
-      image: 'https://images.unsplash.com/photo-1593941707882-a5bbbfa5c831?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80',
-      featured: true
-    },
-    {
-      id: 2,
-      name: 'Carbon Fiber Spoiler',
-      price: 449.99,
-      category: 'Exterior',
-      image: 'https://images.unsplash.com/photo-1553440569-bcc63803a83d?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80'
-    },
-    {
-      id: 3,
-      name: 'Turbocharger T-3000',
-      price: 1299.99,
-      category: 'Performance',
-      image: 'https://images.unsplash.com/photo-1554744512-d6c603f27a54?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80',
-      featured: true
-    },
-    {
-      id: 4,
-      name: 'LED Halo Headlights',
-      price: 199.99,
-      category: 'Lighting',
-      image: 'https://images.unsplash.com/photo-1502877338535-766e1452684a?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80'
-    },
-    {
-      id: 5,
-      name: 'Racing Seats',
-      price: 799.99,
-      category: 'Interior',
-      image: 'https://images.unsplash.com/photo-1601362840469-51e4d8d58785?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80'
-    },
-    {
-      id: 6,
-      name: 'Forged Alloy Wheels',
-      price: 1499.99,
-      category: 'Wheels',
-      image: 'https://images.unsplash.com/photo-1555215278-1b3d38776157?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80'
-    }
-  ];
-
-  const filteredProducts = selectedCategory === 'All' 
-    ? products 
-    : products.filter(product => product.category === selectedCategory);
-
-  const addToCart = () => {
-    setCartItems(cartItems + 1);
+  const handleAddToCart = (product) => {
+    setCart((prev) => [...prev, product]);
   };
 
+  const filteredProducts = products.filter((product) =>
+    product.name.toLowerCase().includes(search.toLowerCase())
+  );
+
+  const services = [
+    {
+      icon: <FaShippingFast size={24} />,
+      title: "FREE DELIVERY",
+      desc: "For all orders over $120",
+    },
+    {
+      icon: <FaLock size={24} />,
+      title: "SAFE PAYMENT",
+      desc: "100% secure payment",
+    },
+    {
+      icon: <FaCheckCircle size={24} />,
+      title: "SHOP WITH CONFIDENCE",
+      desc: "If goods have problems",
+    },
+    {
+      icon: <FaHeadset size={24} />,
+      title: "24/7 HELP CENTER",
+      desc: "Dedicated support",
+    },
+    {
+      icon: <FaSmile size={24} />,
+      title: "FRIENDLY SERVICES",
+      desc: "30-day satisfaction guarantee",
+    },
+  ];
+
   return (
-    <div className="h-screen bg-gray-900 text-gray-100">
-    
+    <div className="min-h-screen bg-gray-950 text-white font-sans relative overflow-x-hidden">
       {/* Hero Section */}
-      <section className="relative h-[75%] bg-gradient-to-br from-gray-900 to-gray-800 overflow-hidden">
-        <div className="absolute inset-0  bg-cover bg-center opacity-70" style={{ backgroundImage: "url('https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?q=80&w=1283&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')"}}></div>
-        <div className="container mx-auto px-4 pl-12 top-14 h-full flex flex-col justify-center relative z-10">
-          <h2 className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent">
-            FUTURE OF AUTOMOTIVE
-          </h2>
-          <p className="text-xl md:text-2xl text-gray-300 mb-8 max-w-2xl">
-            Upgrade your ride with our premium selection of high-performance parts and futuristic modifications.
-          </p>
-          <button className="bg-gradient-to-r from-cyan-500 to-blue-600 text-white px-6 py-3 rounded-full font-bold hover:opacity-90 transition-opacity w-fit">
-            SHOP NOW
-          </button>
-        </div>
-      </section>
+    <section className="relative py-16 md:py-24 px-6 text-white text-center overflow-hidden">
+  {/* Radial glowing background + animated gradient */}
+  <div className="absolute inset-0 z-0 bg-[radial-gradient(circle_at_center,rgba(79,70,229,0.25),transparent_70%)] animate-pulse-slow" />
 
-      {/* Featured Products */}
-      <section className="py-12 bg-black">
-        <div className="container mx-auto px-4">
-          <h3 className="text-2xl font-bold mb-8 flex items-center">
-            <span className="bg-cyan-500 w-2 h-6 mr-2"></span>
-            FEATURED PRODUCTS
-          </h3>
-          
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {products.filter(p => p.featured).map(product => (
-              <div key={product.id} className="bg-gray-800 rounded-lg overflow-hidden border border-gray-700 hover:border-cyan-500/50 transition-all group">
-                <div className="relative overflow-hidden h-48">
-                  <img 
-                    src={product.image} 
-                    alt={product.name} 
-                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-4">
-                    <button 
-                      onClick={addToCart}
-                      className="bg-cyan-600 text-white px-4 py-2 rounded-full text-sm font-bold hover:bg-cyan-500 transition-colors"
-                    >
-                      ADD TO CART
-                    </button>
-                  </div>
-                </div>
-                <div className="p-4">
-                  <h4 className="font-bold text-lg mb-1">{product.name}</h4>
-                  <p className="text-cyan-400 font-bold">${product.price.toFixed(2)}</p>
-                </div>
-              </div>
-            ))}
+  {/* Floating animated blobs */}
+  <div className="absolute -top-32 -left-32 w-96 h-96 bg-purple-700 opacity-20 rounded-full blur-3xl animate-pulse-fast"></div>
+  <div className="absolute -bottom-32 -right-32 w-96 h-96 bg-blue-600 opacity-20 rounded-full blur-3xl animate-pulse-fast"></div>
+
+  {/* Hero Content */}
+  <div className="relative z-10 mt-10 animate-fade-in-up">
+    <h2 className="text-4xl md:text-5xl font-extrabold text-blue-400 mb-4 drop-shadow-xl">
+      High Quality Pristine Pistons
+    </h2>
+    <p className="text-lg md:text-xl text-gray-300 mb-8 drop-shadow">
+      Exclusive Offer -20% Off This Week
+    </p>
+    <button className="px-8 py-3 bg-gradient-to-r from-blue-600 to-purple-700 hover:from-blue-700 hover:to-purple-800 text-white font-bold rounded-xl shadow-xl transition duration-300 transform hover:scale-105">
+      SHOPPING NOW
+    </button>
+  </div>
+</section>
+
+
+      {/* Services */}
+      <section className="bg-gray-900 py-6 px-4 mt-4 grid rounded-3xl mx-8 grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-4 text-white text-center animate-fade-in delay-200">
+        {services.map((service, idx) => (
+          <div key={idx} className="flex flex-col items-center hover:scale-105 transition">
+            <div className="text-yellow-400 mb-2 animate-pulse">{service.icon}</div>
+            <p className="font-semibold text-sm">{service.title}</p>
+            <p className="text-xs text-gray-400">{service.desc}</p>
           </div>
-        </div>
+        ))}
       </section>
 
-      {/* Category Filter */}
-      <section className="py-8 bg-gray-800">
-        <div className="container mx-auto px-4">
-          <div className="flex flex-wrap gap-2">
-            {categories.map(category => (
-              <button
-                key={category}
-                onClick={() => setSelectedCategory(category)}
-                className={`px-4 py-2 rounded-full text-sm font-medium transition-colors ${
-                  selectedCategory === category
-                    ? 'bg-cyan-600 text-white'
-                    : 'bg-gray-700 text-gray-300 hover:bg-gray-600'
-                }`}
+      {/* Product Grid */}
+      <section className="py-12 px-6">
+          <div className="fixed inset-0 z-0 pointer-events-none opacity-25">
+    <Particles
+      particleColors={['#ffffff', '#f0f0f0', '#d1d5db']}
+      particleCount={150}
+      particleSpread={5}
+      speed={0.1}
+      particleBaseSize={100}
+      moveParticlesOnHover={false}
+      alphaParticles={false}
+      disableRotation={false}
+    />
+  </div>
+
+        <h3 className="text-2xl font-bold mb-6 text-center text-blue-400 animate-slide-up">Our Products</h3>
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
+          {filteredProducts.length > 0 ? (
+            filteredProducts.map((product) => (
+              <div
+                key={product.id}
+                className="bg-gray-800 p-4 rounded-2xl border border-blue-600 shadow-lg hover:shadow-blue-400/30 transition-transform transform hover:scale-105 animate-fade-in"
               >
-                {category}
-              </button>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Products Grid */}
-      <section className="py-12 bg-black">
-        <div className="container mx-auto px-4">
-          <h3 className="text-2xl font-bold mb-8 flex items-center">
-            <span className="bg-cyan-500 w-2 h-6 mr-2"></span>
-            {selectedCategory === 'All' ? 'ALL PRODUCTS' : selectedCategory.toUpperCase()}
-          </h3>
-          
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-            {filteredProducts.map(product => (
-              <div key={product.id} className="bg-gray-800 rounded-lg overflow-hidden border border-gray-700 hover:border-cyan-500/50 transition-all group">
-                <div className="relative overflow-hidden h-48">
-                  <img 
-                    src={product.image} 
-                    alt={product.name} 
-                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                <div className="relative">
+                  <img
+                    src={product.image}
+                    alt={product.name}
+                    className="w-full h-40 object-contain rounded-lg bg-gray-700 mb-4"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-4">
-                    <button 
-                      onClick={addToCart}
-                      className="bg-cyan-600 text-white px-4 py-2 rounded-full text-sm font-bold hover:bg-cyan-500 transition-colors"
-                    >
-                      ADD TO CART
-                    </button>
-                  </div>
-                </div>
-                <div className="p-4">
-                  <h4 className="font-bold text-lg mb-1">{product.name}</h4>
-                  <p className="text-cyan-400 font-bold">${product.price.toFixed(2)}</p>
-                  <span className="inline-block mt-2 text-xs px-2 py-1 bg-gray-700 rounded-full">
-                    {product.category}
+                  <span className="absolute top-2 left-2 bg-pink-600 text-xs px-2 py-1 font-bold rounded-full animate-pulse">
+                    {product.discount}
                   </span>
                 </div>
+                <h4 className="text-lg font-semibold text-purple-300 mb-2">
+                  {product.name}
+                </h4>
+                <div className="text-sm text-gray-300 mb-2">
+                  <span className="text-blue-400 text-xl font-bold">
+                    ${product.price}
+                  </span>{" "}
+                  <span className="line-through text-gray-500">
+                    ${product.oldPrice}
+                  </span>
+                </div>
+                <button
+                  onClick={() => handleAddToCart(product)}
+                  className="w-full bg-gradient-to-r from-blue-500 to-purple-600 py-2 rounded-lg text-sm font-bold text-white hover:scale-105 transition-transform shadow-md shadow-blue-500/40"
+                >
+                  Add to Cart
+                </button>
               </div>
-            ))}
-          </div>
+            ))
+          ) : (
+            <p className="text-center col-span-full text-gray-400">No products match your search.</p>
+          )}
         </div>
       </section>
 
-      {/* Newsletter */}
-      <section className="py-12 bg-gradient-to-br from-gray-800 to-gray-900">
-        <div className="container mx-auto px-4 text-center">
-          <h3 className="text-2xl font-bold mb-2">JOIN OUR NEWSLETTER</h3>
-          <p className="text-gray-400 mb-6 max-w-2xl mx-auto">
-            Get exclusive deals, new product announcements, and customization tips straight to your inbox.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-2 max-w-md mx-auto">
-            <input 
-              type="email" 
-              placeholder="Your email address" 
-              className="flex-grow px-4 py-3 rounded-full bg-gray-700 text-white focus:outline-none focus:ring-2 focus:ring-cyan-500"
-            />
-            <button className="bg-cyan-600 text-white px-6 py-3 rounded-full font-bold hover:bg-cyan-500 transition-colors">
-              SUBSCRIBE
-            </button>
-          </div>
-        </div>
-      </section>
-
-      {/* Footer */}
-      <Footer/>
-   
+      {/* Floating Go to Cart Button */}
+      {cart.length > 0 && (
+        <button
+          className="fixed bottom-6 right-6 bg-blue-600 text-white px-4 py-3 rounded-full shadow-lg animate-bounce hover:bg-blue-700 transition z-50"
+          onClick={() => alert("Cart clicked!")}
+        >
+          🛒 Go to Cart ({cart.length})
+        </button>
+      )}
     </div>
   );
 };
