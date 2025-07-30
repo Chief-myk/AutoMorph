@@ -21,7 +21,7 @@ const Card = () => {
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5 }}
-      className='relative w-full max-w-4xl h-full flex-col items-center justify-center mx-auto p-8 overflow-hidden'
+      className='relative w-full max-w-full h-full flex-col bg-black  items-center justify-center mx-auto p-8 overflow-hidden'
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
     >
@@ -34,7 +34,7 @@ const Card = () => {
       </div>
       
       {/* Main Card Content */}
-      <div className='relative z-10 bg-gradient-to-br from-gray-900/80 to-gray-800/80 border border-gray-700/50 rounded-2xl p-8 shadow-2xl backdrop-blur-sm'>
+      <div className='relative z-10 bg-gradient-to-br w-6xl mx-auto from-gray-900/80 to-gray-800/80 border border-gray-700/50 rounded-2xl p-8 shadow-2xl backdrop-blur-sm'>
         {/* Shining Star */}
         <div className='flex items-center mb-6'>
           <motion.span 
@@ -45,7 +45,7 @@ const Card = () => {
             ☆
           </motion.span>
           <motion.h2 
-            className='text-white font-bold text-3xl bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-blue-500'
+            className=' font-bold text-3xl bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-blue-500'
             whileHover={{ scale: 1.02 }}
           >
             Ready to Transform Your Car?

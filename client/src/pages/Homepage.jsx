@@ -3,6 +3,7 @@ import Particles from '../components/Particle.jsx';
 import CarModel from '../components/CarModel.jsx';
 import TrustedByBrands from '../components/TrustByBrands.jsx';
 import WhyCarAI from '../components/WhyCarAI.jsx';
+import Card from '../components/Card.jsx';
 import Navbar from '../components/Navbar.jsx';
 import Footer from '../components/Footer.jsx';  
 import { useState, useEffect } from 'react';    
@@ -88,6 +89,7 @@ const Homepage = () => {
             </div>
 
             <WhyCarAI />
+            <Card/>
             <TrustedByBrands />
             <Footer />
         </>

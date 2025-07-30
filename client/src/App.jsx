@@ -9,6 +9,7 @@ import SignIn from "./pages/SignIn"
 import Footer from './components/Footer'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import Shop from './pages/Shop.jsx' // Make sure this path is correct
+import CommunityPage from './pages/CommunityPage.jsx' // Make sure this path is correct
 
 const router = createBrowserRouter([
   {
@@ -45,6 +46,7 @@ const App = () => {
           <Route path='/' element={<Homepage />} />
           <Route path='/signIn' element={<SignIn />} />
            <Route path='/shop' element={<Shop/>} />
+            <Route path='/community' element={<CommunityPage/>} />
         </Routes>
         <div className="relative z-20">
         
