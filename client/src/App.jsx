@@ -1,15 +1,13 @@
-import React from 'react'
-import Homepage from './pages/Homepage'
-
-import Navbar from './components/Navbar'
-import LoadingSpinner from './pages/Loader'
+import React, { useState, useEffect } from 'react';
+import Homepage from './pages/Homepage';
+import Navbar from './components/Navbar';
+import LoadingSpinner from './pages/Loader';
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { useState, useEffect } from 'react'
 import SignIn from "./pages/SignIn"
 import Footer from './components/Footer'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import Shop from './pages/Shop.jsx' // Make sure this path is correct
-import CommunityPage from './pages/CommunityPage.jsx' // Make sure this path is correct
 
 const router = createBrowserRouter([
   {
@@ -26,7 +24,7 @@ const App = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    const timer = setTimeout(() => setLoading(false), 3000);
+    const timer = setTimeout(() => setLoading(false), 1500);
     return () => clearTimeout(timer);
   }, []);
 
@@ -46,14 +44,10 @@ const App = () => {
           <Route path='/' element={<Homepage />} />
           <Route path='/signIn' element={<SignIn />} />
            <Route path='/shop' element={<Shop/>} />
-            <Route path='/community' element={<CommunityPage/>} />
         </Routes>
         <div className="relative z-20">
         
         </div>
       </Router>
 
-  )
-}
-
-export default App
+export default App;

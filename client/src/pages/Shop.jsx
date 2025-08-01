@@ -94,7 +94,8 @@ const Shop = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-gray-950 text-white font-sans relative overflow-x-hidden">
+    <div className="h-screen bg-gray-900 text-gray-100">
+    
       {/* Hero Section */}
     <section className="relative py-16 md:py-24 px-6 text-white text-center overflow-hidden">
   {/* Radial glowing background + animated gradient */}
@@ -198,7 +199,9 @@ const Shop = () => {
         </button>
       )}
 
+      {/* Footer */}
       <Footer/>
+   
     </div>
   );
 };

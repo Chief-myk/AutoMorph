@@ -5,8 +5,10 @@ import TrustedByBrands from '../components/TrustByBrands.jsx';
 import WhyCarAI from '../components/WhyCarAI.jsx';
 import Card from '../components/Card.jsx';
 import Navbar from '../components/Navbar.jsx';
-import Footer from '../components/Footer.jsx';  
-import { useState, useEffect } from 'react';    
+import Footer from '../components/Footer.jsx';
+import { useState, useEffect } from 'react';
+import Card from "../components/Card.jsx"
+
 
 
 const Homepage = () => {
@@ -87,11 +89,14 @@ const Homepage = () => {
                     </div>
                 </div>
             </div>
-
+            <div className='bg-black'>
+            <Card />
+            </div>
             <WhyCarAI />
             <Card/>
             <TrustedByBrands />
-            <Footer />
+
+            {/* Footbar */}
         </>
     );
 };

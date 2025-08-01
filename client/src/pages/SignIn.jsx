@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import Hyperspeed from '../components/HyperSpeed';
 import { motion } from 'framer-motion';
+import Footer from '../components/Footer';
 import { FaLock, FaEnvelope, FaUser, FaArrowRight, FaEye, FaEyeSlash } from 'react-icons/fa';
 
 const SignIn = () => {
@@ -301,6 +302,7 @@ const SignIn = () => {
           </form>
         </motion.div>
       </div>
+       {/* Footer */}
     </div>
   );
 };
