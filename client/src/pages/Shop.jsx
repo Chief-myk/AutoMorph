@@ -17,7 +17,7 @@ const products = [
     price: 230,
     oldPrice: 260,
     discount: "-12%",
-    image: "/public/CarParts/generated-image.png",
+    image: "/CarParts/generated-image.png",
   },
   {
     id: 2,
@@ -25,7 +25,7 @@ const products = [
     price: 120,
     oldPrice: 150,
     discount: "-20%",
-    image: "/public/CarParts/gen5.png",
+    image: "/CarParts/gen5.png",
   },
   {
     id: 3,
@@ -33,7 +33,7 @@ const products = [
     price: 100,
     oldPrice: 140,
     discount: "-29%",
-    image: "/public/CarParts/generated-image4.png",
+    image: "/CarParts/generated-image4.png",
   },
   {
     id: 4,
@@ -41,7 +41,7 @@ const products = [
     price: 150,
     oldPrice: 180,
     discount: "-17%",
-    image: "/public/CarParts/generated-image3.png",
+    image: "/CarParts/generated-image3.png",
   },
   {
     id: 5,
@@ -49,7 +49,7 @@ const products = [
     price: 210,
     oldPrice: 250,
     discount: "-16%",
-    image: "/public/CarParts/generated-image1.png",
+    image: "/CarParts/generated-image1.png",
   },
 ];
 
