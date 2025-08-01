@@ -48,7 +48,7 @@ const CommunityPage = () => {
   };
 
   return (
-    <div className="min-h-screen grid grid-cols-1 md:grid-cols-5 bg-[#0D1117] text-white font-sans overflow-hidden">
+    <div className="min-h-screen bg-[#0D1117] text-white font-sans overflow-hidden">
       {/* Animated background elements */}
       <div className="fixed inset-0 overflow-hidden pointer-events-none">
         {[...Array(20)].map((_, i) => (
@@ -67,60 +67,8 @@ const CommunityPage = () => {
         ))}
       </div>
 
-      {/* Sidebar with animation */}
-      <motion.aside 
-        initial={{ x: -100, opacity: 0 }}
-        animate={{ x: 0, opacity: 1 }}
-        transition={{ duration: 0.8, ease: "easeOut" }}
-        className="col-span-1 bg-[#111827]/90 backdrop-blur-md p-6 pt-32 border-r border-gray-800/50 space-y-8 z-10"
-      >
-        <motion.div
-          whileHover={{ scale: 1.05 }}
-          className="flex items-center space-x-3 mb-8"
-        >
-          <div className="w-3 h-3 rounded-full bg-cyan-400 shadow-[0_0_8px_2px_rgba(34,211,238,0.5)]"></div>
-          <h2 className="text-xl font-bold text-cyan-400 tracking-wide">Community Hub</h2>
-        </motion.div>
-        
-        <nav className="flex flex-col space-y-5">
-          {['Home', 'Discussions', 'Announcements', 'Events', 'Resources'].map((item, index) => (
-            <motion.a
-              key={index}
-              href="#"
-              whileHover={{ x: 5, color: "#22d3ee" }}
-              transition={{ type: "spring", stiffness: 300 }}
-              className="text-gray-300 hover:text-cyan-300 flex items-center group"
-            >
-              <span className="w-2 h-2 rounded-full bg-transparent group-hover:bg-cyan-300 mr-3 transition-all duration-300"></span>
-              {item}
-            </motion.a>
-          ))}
-        </nav>
-
-        {/* Online users widget */}
-        <motion.div 
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.5 }}
-          className="mt-12 pt-6 border-t border-gray-800/50"
-        >
-          <div className="text-xs text-gray-400 mb-3">ONLINE NOW</div>
-          <div className="flex -space-x-2">
-            {[...Array(5)].map((_, i) => (
-              <div 
-                key={i}
-                className="w-8 h-8 rounded-full bg-gradient-to-br from-cyan-400 to-purple-500 border-2 border-[#0D1117]"
-              />
-            ))}
-            <div className="w-8 h-8 rounded-full bg-gray-700 border-2 border-[#0D1117] flex items-center justify-center text-xs">
-              +12
-            </div>
-          </div>
-        </motion.div>
-      </motion.aside>
-
       {/* Main Content */}
-      <main className="col-span-4 p-8 space-y-12 relative">
+      <main className="p-8 space-y-12 relative max-w-7xl mx-auto">
         {/* Header with animation */}
         <motion.section 
           initial={{ y: -20, opacity: 0 }}
@@ -191,18 +139,7 @@ const CommunityPage = () => {
         </motion.section>
 
         {/* Floating action button */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.8 }}
-          className="fixed bottom-8 right-8 z-20"
-        >
-          <button className="w-14 h-14 rounded-full bg-gradient-to-br from-cyan-400 to-purple-500 shadow-lg flex items-center justify-center hover:shadow-cyan-400/40 transition-all">
-            <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
-            </svg>
-          </button>
-        </motion.div>
+      
 
         {/* Feedback section with glass morphism effect */}
         <motion.section 
