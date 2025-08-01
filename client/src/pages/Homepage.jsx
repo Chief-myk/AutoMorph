@@ -7,7 +7,7 @@ import Card from '../components/Card.jsx';
 import Navbar from '../components/Navbar.jsx';
 import Footer from '../components/Footer.jsx';
 import { useState, useEffect } from 'react';
-import Card from "../components/Card.jsx"
+import { Link } from 'react-router';
 
 
 
@@ -46,7 +46,9 @@ const Homepage = () => {
                         </div>
                         <div className='flex space-x-6 mt-8'>
                             <button className='px-8 py-3 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full text-white font-medium hover:from-blue-500 hover:to-purple-500 transition-all duration-300 hover:shadow-lg hover:shadow-blue-500/30 transform hover:-translate-y-1'>
+                            <Link to={"/TryUs"}>
                                 Get Started
+                            </Link>
                             </button>
                             <button className='px-8 py-3 border-2 border-gray-400 rounded-full text-white font-medium hover:bg-white/10 transition-all duration-300 hover:border-white group'>
                                 <span className='group-hover:bg-clip-text group-hover:text-transparent group-hover:bg-gradient-to-r group-hover:from-blue-400 group-hover:to-purple-400'>
@@ -93,7 +95,6 @@ const Homepage = () => {
             <Card />
             </div>
             <WhyCarAI />
-            <Card/>
             <TrustedByBrands />
 
             {/* Footbar */}

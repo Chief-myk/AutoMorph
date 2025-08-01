@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-
+import { Link } from 'react-router';
 const Card = () => {
   const [hovered, setHovered] = useState(false);
   
@@ -61,14 +61,16 @@ const Card = () => {
         
         {/* Buttons with enhanced effects */}
         <div className='flex flex-wrap gap-4 mb-8'>
+          <Link to={"/TryUs"}>
           <motion.button 
-            className='px-8 py-3 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full text-white font-medium relative overflow-hidden group'
+            className='px-8 py-3 bg-gradient-to-r cursor-pointer from-blue-600 to-purple-600 rounded-full text-white font-medium relative overflow-hidden group'
             whileHover={{ y: -3, boxShadow: '0 10px 25px -5px rgba(99, 102, 241, 0.4)' }}
             whileTap={{ scale: 0.95 }}
           >
             <span className='relative z-10'>Get Started</span>
             <span className='absolute inset-0 bg-gradient-to-r from-blue-500 to-purple-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300'></span>
           </motion.button>
+          </Link>
           
           <motion.button 
             className='px-8 py-3 border-2 border-gray-400 rounded-full text-white font-medium relative group'

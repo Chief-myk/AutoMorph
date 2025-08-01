@@ -123,8 +123,8 @@ const Footer = () => {
                   { name: 'About', to: '/about' },
                   { name: 'Our Shop', to: '/OurShop' },
                   { name: 'Try Us', to: '/TryUs' },
-                  { name: 'Privacy Policy', to: '/PrivacyPolicy' },
-                  { name: 'Terms Of Service', to: '/TermsOfService' },
+                  { name: 'Privacy Policy', to: '/' },
+                  { name: 'Terms Of Service', to: '/' },
                 ].map((item, index) => (
                   <li key={index}>
                     <Link

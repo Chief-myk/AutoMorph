@@ -2,6 +2,7 @@ import React, { useRef, useEffect } from 'react';
 import ProfileCard from '../components/ProfileCard';
 import { motion, useAnimation, useInView } from 'framer-motion';
 import { FiArrowRight, FiCheck, FiStar, FiShoppingBag, FiEye, FiUsers, FiBarChart2, FiUserPlus, FiArrowDown, FiPlay } from 'react-icons/fi';
+import { Link } from 'react-router';
 
 const About = () => {
     const controls = useAnimation();
@@ -412,9 +413,12 @@ const About = () => {
                         {/* <p className="text-lg text-gray-400 max-w-3xl mx-auto mb-10">
                             We envision a world where every car owner can easily transform their vehicle into a perfect reflection of their personality and needs, powered by AI and supported by a passionate community.
                         </p> */}
-                        <button className="px-8 py-3 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full font-medium text-white hover:shadow-lg hover:shadow-blue-500/30 transition-all duration-300 inline-flex items-center">
+                        <Link to={"/community"}>
+                        <button className="px-8 cursor-pointer py-3 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full font-medium text-white hover:shadow-lg hover:shadow-blue-500/30 transition-all duration-300 inline-flex items-center">
                             Join Our Mission <FiArrowRight className="ml-2" />
                         </button>
+                        </Link>
+
                     </motion.div>
                 </div>
             </section>

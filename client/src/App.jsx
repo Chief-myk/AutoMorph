@@ -3,11 +3,13 @@ import Homepage from './pages/Homepage';
 import Navbar from './components/Navbar';
 import LoadingSpinner from './pages/Loader';
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import { useState, useEffect } from 'react'
 import SignIn from "./pages/SignIn"
 import Footer from './components/Footer'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
-import Shop from './pages/Shop.jsx' // Make sure this path is correct
+import Shop from './pages/Shop.jsx' 
+import About from "./pages/About.jsx"
+import TryUs from "./pages/Main.jsx"
+import Community from './pages/CommunityPage.jsx'
 
 const router = createBrowserRouter([
   {
@@ -36,18 +38,23 @@ const App = () => {
     );
   }
   return (
-      <Router>
-        <div className="relative z-20">
-          <Navbar />
-        </div>
-        <Routes>
-          <Route path='/' element={<Homepage />} />
-          <Route path='/signIn' element={<SignIn />} />
-           <Route path='/shop' element={<Shop/>} />
-        </Routes>
-        <div className="relative z-20">
-        
-        </div>
-      </Router>
+    <Router>
+      <div className="relative z-20">
+        <Navbar />
+      </div>
+      <Routes>
+        <Route path='/' element={<Homepage />} />
+        <Route path='/about' element={<About />} />
+        <Route path='/OurShop' element={<Shop/>} />
+        <Route path='/TryUs' element={<TryUs/>} />
+        <Route path='/community' element={<Community />} />
+        <Route path='/signIn' element={<SignIn />} />
+      </Routes>
+      <div className="relative z-20 bottom-0">
+        <Footer />
+      </div>
+    </Router>
+  )
+}
 
 export default App;

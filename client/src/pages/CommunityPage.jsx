@@ -68,7 +68,7 @@ const CommunityPage = () => {
       </div>
 
       {/* Main Content */}
-      <main className="p-8 space-y-12 relative max-w-7xl mx-auto">
+      <main className="p-8 pt-38 space-y-12 relative max-w-7xl mx-auto">
         {/* Header with animation */}
         <motion.section 
           initial={{ y: -20, opacity: 0 }}

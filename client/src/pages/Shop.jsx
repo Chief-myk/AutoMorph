@@ -94,7 +94,7 @@ const Shop = () => {
   ];
 
   return (
-    <div className="h-screen bg-gray-900 text-gray-100">
+    <div className="min-h-screen bg-gray-900 text-gray-100">
     
       {/* Hero Section */}
     <section className="relative py-16 md:py-24 px-6 text-white text-center overflow-hidden">
@@ -198,9 +198,6 @@ const Shop = () => {
           🛒 Go to Cart ({cart.length})
         </button>
       )}
-
-      {/* Footer */}
-      <Footer/>
    
     </div>
   );
