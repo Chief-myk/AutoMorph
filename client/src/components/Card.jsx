@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Link } from 'react-router';
+import { Link } from 'react-router-dom';
+
 const Card = () => {
   const [hovered, setHovered] = useState(false);
   
@@ -21,7 +22,7 @@ const Card = () => {
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5 }}
-      className='relative w-full max-w-full h-full flex-col bg-black  items-center justify-center mx-auto p-8 overflow-hidden'
+      className='relative w-full max-w-full h-full flex-col bg-black items-center justify-center mx-auto p-4 md:p-6 lg:p-8 overflow-hidden'
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
     >
@@ -34,18 +35,18 @@ const Card = () => {
       </div>
       
       {/* Main Card Content */}
-      <div className='relative z-10 bg-gradient-to-br w-6xl mx-auto from-gray-900/80 to-gray-800/80 border border-gray-700/50 rounded-2xl p-8 shadow-2xl backdrop-blur-sm'>
+      <div className='relative z-10 bg-gradient-to-br w-full mx-auto from-gray-900/80 to-gray-800/80 border border-gray-700/50 rounded-2xl p-4 sm:p-6 md:p-8 shadow-2xl backdrop-blur-sm'>
         {/* Shining Star */}
-        <div className='flex items-center mb-6'>
+        <div className='flex items-center mb-4 sm:mb-5 md:mb-6'>
           <motion.span 
             animate={{ rotate: hovered ? [0, 15, -15, 0] : 0 }}
             transition={{ duration: 1 }}
-            className='text-yellow-400 text-4xl mr-3'
+            className='text-yellow-400 text-2xl sm:text-3xl md:text-4xl mr-2 sm:mr-3'
           >
             ☆
           </motion.span>
           <motion.h2 
-            className=' font-bold text-3xl bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-blue-500'
+            className='font-bold text-xl sm:text-2xl md:text-3xl bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-blue-500'
             whileHover={{ scale: 1.02 }}
           >
             Ready to Transform Your Car?
@@ -53,27 +54,27 @@ const Card = () => {
         </div>
         
         <motion.p 
-          className='text-gray-300 mb-8 text-lg leading-relaxed'
+          className='text-gray-300 mb-6 sm:mb-7 md:mb-8 text-base sm:text-lg leading-relaxed'
           whileHover={{ x: 5 }}
         >
           Join <span className='font-semibold text-white'>thousands of car enthusiasts</span> who have revolutionized their vehicles with <span className='font-semibold text-purple-300'>AI-powered insights</span>. Start your transformation journey today.
         </motion.p>
         
         {/* Buttons with enhanced effects */}
-        <div className='flex flex-wrap gap-4 mb-8'>
+        <div className='flex flex-wrap gap-3 sm:gap-4 mb-6 sm:mb-7 md:mb-8'>
           <Link to={"/TryUs"}>
-          <motion.button 
-            className='px-8 py-3 bg-gradient-to-r cursor-pointer from-blue-600 to-purple-600 rounded-full text-white font-medium relative overflow-hidden group'
-            whileHover={{ y: -3, boxShadow: '0 10px 25px -5px rgba(99, 102, 241, 0.4)' }}
-            whileTap={{ scale: 0.95 }}
-          >
-            <span className='relative z-10'>Get Started</span>
-            <span className='absolute inset-0 bg-gradient-to-r from-blue-500 to-purple-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300'></span>
-          </motion.button>
+            <motion.button 
+              className='px-6 py-2 sm:px-7 sm:py-2.5 md:px-8 md:py-3 bg-gradient-to-r cursor-pointer from-blue-600 to-purple-600 rounded-full text-white font-medium relative overflow-hidden group text-sm sm:text-base'
+              whileHover={{ y: -3, boxShadow: '0 10px 25px -5px rgba(99, 102, 241, 0.4)' }}
+              whileTap={{ scale: 0.95 }}
+            >
+              <span className='relative z-10'>Get Started</span>
+              <span className='absolute inset-0 bg-gradient-to-r from-blue-500 to-purple-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300'></span>
+            </motion.button>
           </Link>
           
           <motion.button 
-            className='px-8 py-3 border-2 border-gray-400 rounded-full text-white font-medium relative group'
+            className='px-6 py-2 sm:px-7 sm:py-2.5 md:px-8 md:py-3 border-2 border-gray-400 rounded-full text-white font-medium relative group text-sm sm:text-base'
             whileHover={{ y: -3 }}
             whileTap={{ scale: 0.95 }}
           >
@@ -86,7 +87,7 @@ const Card = () => {
         
         {/* Feature List with Animation */}
         <motion.div 
-          className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3 text-sm'
+          className='grid grid-cols-1 xs:grid-cols-2 sm:grid-cols-2 md:grid-cols-3 gap-2 sm:gap-3 text-xs sm:text-sm'
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.2 }}
@@ -97,15 +98,15 @@ const Card = () => {
               className='flex items-center text-gray-300 hover:text-white transition-colors'
               whileHover={{ x: 5 }}
             >
-              <span className='text-emerald-400 mr-2'>✓</span>
-              <span>{feature}</span>
+              <span className='text-emerald-400 mr-1 sm:mr-2'>✓</span>
+              <span className='break-words'>{feature}</span>
             </motion.div>
           ))}
         </motion.div>
         
         {/* Floating particles effect (visual only) */}
-        <div className='absolute -bottom-10 -right-10 w-40 h-40 rounded-full bg-purple-500/10 blur-xl'></div>
-        <div className='absolute -top-10 -left-10 w-40 h-40 rounded-full bg-blue-500/10 blur-xl'></div>
+        <div className='absolute -bottom-10 -right-10 w-32 h-32 sm:w-40 sm:h-40 rounded-full bg-purple-500/10 blur-xl'></div>
+        <div className='absolute -top-10 -left-10 w-32 h-32 sm:w-40 sm:h-40 rounded-full bg-blue-500/10 blur-xl'></div>
       </div>
     </motion.div>
   )

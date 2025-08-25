@@ -40,21 +40,20 @@ const TrustedByBrands = () => {
   };
 
   return (
-    <div className="relative bg-black w-full h-full flex-col items-center justify-center mx-auto p-8 pb-28 overflow-hidden">
+    <div className="relative bg-black w-full h-full flex-col items-center justify-center mx-auto px-4 sm:px-6 md:px-8 py-8 md:py-12 lg:py-16 pb-16 md:pb-20 lg:pb-28 overflow-hidden">
       <motion.div 
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
-        className="text-center mb-8"
+        className="text-center mb-6 md:mb-8"
       >
-      <h2 className="text-4xl md:text-5xl text-white font-bold mb-4">
-            Trusted by{" "}
-            <span className="bg-gradient-to-r from-[#26C6FF] via-[#A0006D] to-[#FF6B6B] bg-clip-text text-transparent">
-              Leading Brands
-            </span>
-            
-          </h2>
-        <p className="text-gray-400 mt-2">
+        <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-white font-bold mb-3 md:mb-4">
+          Trusted by{" "}
+          <span className="bg-gradient-to-r from-[#26C6FF] via-[#A0006D] to-[#FF6B6B] bg-clip-text text-transparent">
+            Leading Brands
+          </span>
+        </h2>
+        <p className="text-gray-400 text-sm sm:text-base mt-2 max-w-2xl mx-auto">
           Our technology powers innovation for the world's top automotive companies
         </p>
       </motion.div>
@@ -75,16 +74,16 @@ const TrustedByBrands = () => {
           {brands.map((brand, index) => (
             <motion.div
               key={index}
-              className="flex-shrink-0 px-4" // Added px-4 for spacing between items
+              className="flex-shrink-0 px-2 sm:px-3 md:px-4" // Responsive spacing
               variants={item}
               whileHover={{ 
                 y: -5,
                 scale: 1.05,
                 transition: { duration: 0.2 }
               }}
-              style={{ width: "200px" }} // Fixed width for each item
+              style={{ width: "200px", minWidth: "200px" }} // Fixed width for each item
             >
-              <div className="bg-[#0F111E] rounded-xl p-4 border border-[#1e1e2e] 
+              <div className="bg-[#0F111E] rounded-lg md:rounded-xl p-3 md:p-4 border border-[#1e1e2e] 
                 hover:border-[#26C6FF]/50 hover:shadow-[0_5px_15px_-5px_rgba(38,198,255,0.3)]
                 transition-all duration-300 group relative overflow-hidden h-full">
                 
@@ -92,14 +91,14 @@ const TrustedByBrands = () => {
                 <div className="absolute inset-0 bg-gradient-to-br from-[#26C6FF]/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"></div>
                 
                 {/* Logo container */}
-                <div className="relative h-16 w-full flex items-center justify-center">
+                <div className="relative h-12 sm:h-14 md:h-24 w-full flex items-center justify-center">
                   <img
                     src={brand.logo}
                     alt={brand.name}
-                    width={120}
-                    height={60}
+                    width={500}
+                    height={200}
                     style={{ objectFit: "contain" }}
-                    className="filter grayscale-[30%] group-hover:grayscale-0 mt-6 transition-all duration-500"
+                    className="filter grayscale-[30%] group-hover:grayscale-0 mt-4 md:mt-6 transition-all duration-500 max-h-full"
                   />
                 </div>
                 
@@ -107,7 +106,7 @@ const TrustedByBrands = () => {
                 <motion.p 
                   initial={{ opacity: 0, y: 10 }}
                   whileHover={{ opacity: 1, y: 0 }}
-                  className="text-center text-sm text-[#26C6FF] mt-2 font-medium"
+                  className="text-center text-xs sm:text-sm text-[#26C6FF] mt-1 md:mt-2 font-medium"
                 >
                   {brand.name}
                 </motion.p>
@@ -119,19 +118,19 @@ const TrustedByBrands = () => {
 
       {/* Animated floating dots in background */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none -z-10">
-        {[...Array(15)].map((_, i) => (
+        {[...Array(10)].map((_, i) => (
           <motion.div
             key={i}
             className="absolute rounded-full bg-[#26C6FF]/10"
             style={{
-              width: Math.random() * 8 + 2 + 'px',
-              height: Math.random() * 8 + 2 + 'px',
+              width: Math.random() * 6 + 2 + 'px',
+              height: Math.random() * 6 + 2 + 'px',
               left: Math.random() * 100 + '%',
               top: Math.random() * 100 + '%',
             }}
             animate={{
-              y: [0, (Math.random() - 0.5) * 40],
-              x: [0, (Math.random() - 0.5) * 20],
+              y: [0, (Math.random() - 0.5) * 30],
+              x: [0, (Math.random() - 0.5) * 15],
               opacity: [0.3, 0.7, 0.3],
             }}
             transition={{
