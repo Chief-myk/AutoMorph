@@ -10,6 +10,8 @@ import Shop from './pages/Shop.jsx'
 import About from "./pages/About.jsx"
 import TryUs from "./pages/Main.jsx"
 import Community from './pages/CommunityPage.jsx'
+import { useAuth0 } from "@auth0/auth0-react";
+
 
 const router = createBrowserRouter([
   {
@@ -29,6 +31,8 @@ const App = () => {
     const timer = setTimeout(() => setLoading(false), 1500);
     return () => clearTimeout(timer);
   }, []);
+
+  
 
   if (loading) {
     return (

@@ -2,9 +2,30 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { FaBars, FaTimes } from "react-icons/fa";
 
+import { useAuth0 } from "@auth0/auth0-react";
+import SignIn from "../pages/SignIn";
+
 const Navbar = () => {
   const [activeLink, setActiveLink] = useState(null);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
+
+   const {
+    isLoading, // Loading state, the SDK needs to reach Auth0 on load
+    isAuthenticated,
+    error,
+    loginWithRedirect: login, // Starts the login flow
+    logout: auth0Logout, // Starts the logout flow
+    user, // User profile
+  } = useAuth0();
+
+  const signup = () =>
+    login({ authorizationParams: { screen_hint: "signup" } });
+
+  const logout = () =>
+    auth0Logout({ logoutParams: { returnTo: window.location.origin } });
+
+  if (isLoading) return "Loading...";
 
   const navLinks = [
     { path: "/about", label: "About" },
@@ -75,11 +96,58 @@ const Navbar = () => {
 
         {/* Sign In Button */}
         <div className="hidden md:flex items-center">
-          <Link to={"/signIn"}>
-            <button className="relative cursor-pointer px-5 py-2 sm:px-6 sm:py-2 rounded-xl font-bold group overflow-hidden shadow-md shadow-[#26C6FF]/10 border border-[#23263a] bg-gradient-to-r from-[#1C1F2A] to-[#23263a] hover:from-[#23263a] hover:to-[#1C1F2A] transition-all duration-300">
+       
+      { isAuthenticated ? (   <button onClick={logout} className="relative cursor-pointer px-5 py-2 sm:px-6 sm:py-2 rounded-xl font-bold group overflow-hidden shadow-md shadow-[#26C6FF]/10 border border-[#23263a] bg-gradient-to-r from-[#1C1F2A] to-[#23263a] hover:from-[#23263a] hover:to-[#1C1F2A] transition-all duration-300">
               <span className="relative z-10 text-white group-hover:text-[#26C6FF] transition-colors duration-300 text-sm sm:text-base">
-                Sign In
+                Log out
               </span>
+
+              
+              <span className="absolute inset-0 bg-[#1C1F2A] rounded-xl opacity-100 group-hover:opacity-0 transition-opacity duration-300"></span>
+              <span
+                className="absolute inset-0 bg-gradient-to-r from-[#26C6FF]/30 via-[#A0006D]/20 to-[#FF6B6B]/30 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                style={{
+                  boxShadow: '0 0 18px 2px #26C6FF33',
+                }}
+              ></span>
+              <span
+                className="absolute inset-0 rounded-xl border border-transparent group-hover:border-[#26C6FF] group-hover:border-opacity-60 transition-all duration-300"
+                style={{
+                  boxShadow: 'inset 0 0 12px #26C6FF22',
+                  animation: 'pulse 2s infinite',
+                }}
+              ></span>
+            </button>)
+            
+
+:
+       ( <>
+             <button onClick={login} className="relative cursor-pointer mr-3 px-5 py-2 sm:px-6 sm:py-2 rounded-xl font-bold group overflow-hidden shadow-md shadow-[#26C6FF]/10 border border-[#23263a] bg-gradient-to-r from-[#1C1F2A] to-[#23263a] hover:from-[#23263a] hover:to-[#1C1F2A] transition-all duration-300">
+              <span className="relative z-10 text-white group-hover:text-[#26C6FF] transition-colors duration-300 text-sm sm:text-base">
+              Login
+              </span>
+
+              
+              <span className="absolute inset-0 bg-[#1C1F2A] rounded-xl opacity-100 group-hover:opacity-0 transition-opacity duration-300"></span>
+              <span
+                className="absolute inset-0 bg-gradient-to-r from-[#26C6FF]/30 via-[#A0006D]/20 to-[#FF6B6B]/30 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                style={{
+                  boxShadow: '0 0 18px 2px #26C6FF33',
+                }}
+              ></span>
+              <span
+                className="absolute inset-0 rounded-xl border border-transparent group-hover:border-[#26C6FF] group-hover:border-opacity-60 transition-all duration-300"
+                style={{
+                  boxShadow: 'inset 0 0 12px #26C6FF22',
+                  animation: 'pulse 2s infinite',
+                }}
+              ></span>
+            </button>  <button onClick={signup} className="relative cursor-pointer px-5 py-2 sm:px-6 sm:py-2 rounded-xl font-bold group overflow-hidden shadow-md shadow-[#26C6FF]/10 border border-[#23263a] bg-gradient-to-r from-[#1C1F2A] to-[#23263a] hover:from-[#23263a] hover:to-[#1C1F2A] transition-all duration-300">
+              <span className="relative z-10 text-white group-hover:text-[#26C6FF] transition-colors duration-300 text-sm sm:text-base">
+              Sign up
+              </span>
+
+              
               <span className="absolute inset-0 bg-[#1C1F2A] rounded-xl opacity-100 group-hover:opacity-0 transition-opacity duration-300"></span>
               <span
                 className="absolute inset-0 bg-gradient-to-r from-[#26C6FF]/30 via-[#A0006D]/20 to-[#FF6B6B]/30 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"
@@ -95,7 +163,9 @@ const Navbar = () => {
                 }}
               ></span>
             </button>
-          </Link>
+            
+       </>) }
+          
         </div>
 
         {/* Mobile Menu Button */}
