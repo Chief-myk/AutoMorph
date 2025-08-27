@@ -25,7 +25,7 @@ const Navbar = () => {
   const logout = () =>
     auth0Logout({ logoutParams: { returnTo: window.location.origin } });
 
-  if (isLoading) return "Loading...";
+
 
   const navLinks = [
     { path: "/about", label: "About" },
