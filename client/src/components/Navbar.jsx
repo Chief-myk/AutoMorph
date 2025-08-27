@@ -9,7 +9,7 @@ const Navbar = () => {
   const [activeLink, setActiveLink] = useState(null);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
-
+//---------------------------------------
    const {
     isLoading, // Loading state, the SDK needs to reach Auth0 on load
     isAuthenticated,
@@ -25,7 +25,7 @@ const Navbar = () => {
   const logout = () =>
     auth0Logout({ logoutParams: { returnTo: window.location.origin } });
 
-
+//----------------------------------------
 
   const navLinks = [
     { path: "/about", label: "About" },

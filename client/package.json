@@ -13,6 +13,7 @@
     "@auth0/auth0-react": "^2.4.0",
     "@react-three/drei": "^10.6.1",
     "@react-three/fiber": "^9.3.0",
+    "@studio-freight/lenis": "^1.0.42",
     "@tailwindcss/vite": "^4.1.11",
     "axios": "^1.10.0",
     "flask": "^0.2.10",

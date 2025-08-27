@@ -8,8 +8,19 @@ import Navbar from '../components/Navbar.jsx';
 import Footer from '../components/Footer.jsx';
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import { useAuth0 } from "@auth0/auth0-react";
 
 const Homepage = () => {
+
+      const {
+    isLoading, // Loading state, the SDK needs to reach Auth0 on load
+    isAuthenticated,
+    error,
+    loginWithRedirect: login, // Starts the login flow
+    logout: auth0Logout, // Starts the logout flow
+    user, // User profile
+  } = useAuth0();
+
     return (
         <>
             <div className='bg-black text-white w-full min-h-screen flex flex-col items-center justify-start relative overflow-x-hidden'>
@@ -30,9 +41,20 @@ const Homepage = () => {
                 {/* Main Content Section */}
                 <div className='w-full min-h-screen flex flex-col lg:flex-row justify-between px-4 sm:px-6 md:px-8 lg:px-10 xl:px-20 py-10 md:py-16 relative z-10 mt-0 lg:mt-6'>
                     {/* Left Content */}
-                    <div className='flex flex-col justify-center w-full lg:w-1/2 h-full lg:pl-8 xl:pl-16 pr-0 lg:pr-10 order-2 lg:order-1 text-center lg:text-left'>
-                        <div className='mb-6 md:mb-8'>
-                            <h1 className='text-4xl sm:text-5xl md:text-6xl font-bold mb-3 md:mb-4 bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-600'>
+                    <div className='flex flex-col md:mt-10 justify-center w-full lg:w-1/2 h-full lg:pl-8 xl:pl-16 pr-0 lg:pr-10 order-2 lg:order-1 text-center lg:text-left'>
+                        <div className=''>
+                            
+                          {isAuthenticated && user ? ( <h1 className='text-4xl sm:text-5xl md:text-6xl font-bold mb-1 md:mb-2 bg-clip-text text-transparent bg-gradient-to-r from-[#26C6FF] via-[#A0006D] to-[#FF6B6B]'>
+                               Hey, {user.name.split(' ')[0]} !
+                            </h1>): 
+( <h1 className='text-4xl sm:text-5xl md:text-6xl font-bold mb-1 md:mb-2 bg-clip-text text-transparent bg-gradient-to-r from-emerald-400 to-cyan-600'>
+                           
+                            </h1>)
+
+                          }
+
+
+                            <h1 className='text-4xl sm:text-5xl md:text-6xl font-bold mb-1 md:mb-2 bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-600'>
                                 Welcome to AutoMorph
                             </h1>
                             <div className='w-16 h-1 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full mx-auto lg:mx-0'></div>

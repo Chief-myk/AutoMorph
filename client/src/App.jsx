@@ -11,7 +11,7 @@ import About from "./pages/About.jsx"
 import TryUs from "./pages/Main.jsx"
 import Community from './pages/CommunityPage.jsx'
 import { useAuth0 } from "@auth0/auth0-react";
-
+import useLenis from "../lenis.js";
 
 const router = createBrowserRouter([
   {
@@ -26,6 +26,7 @@ const router = createBrowserRouter([
 
 const App = () => {
   const [loading, setLoading] = useState(true);
+   useLenis(); 
 
   useEffect(() => {
     const timer = setTimeout(() => setLoading(false), 1500);
